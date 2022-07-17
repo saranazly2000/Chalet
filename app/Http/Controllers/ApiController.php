@@ -757,6 +757,22 @@ class ApiController extends Controller
     return response()->json(['status' => $status]);
   }
 
-
+  public function addnewmember(Request $request)
+  {
+    $phone = $request['phone'];
+    $type = $request['type'];
+    $name = $request['name'];
+    $member = new Member();
+    $member->phone = $phone;
+    $member->type = $type;
+    $member->name = $name;
+    $result = $member->save();
+    if ($result) {
+      $status = true;
+    } else {
+      $status = false;
+    }
+    return response()->json(['status' => $status]);
+  }
   
 }

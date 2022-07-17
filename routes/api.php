@@ -52,7 +52,8 @@ Route::post('image/store', 'ApiController@storeimage');
 
 Route::get('user','Auth\RegisterController@index');
 //http://localhost:8000/api/user
-
+Route::get('addnewmember','ApiController@addnewmember');
+//http://localhost:8000/api/addnewmember
 
 Route::post('user/store', 'ApiController@storeuser');
 //http://localhost:8000/api/user/store
