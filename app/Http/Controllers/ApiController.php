@@ -490,34 +490,47 @@ class ApiController extends Controller
     $chalet_id = $request['chalet_id'];
     $name = $request['chaletname'];
     $phone = $request['chaletphone'];
-    $price = $request['chaletprice'];
-    $email = $request['chaletemail'];
-    $member_id = $request['member_id'];
+    $ownerid = $request['member_id'];
     $address = $request['chaletaddress'];
     $chaletlatitude = $request['chaletlatitude'];
     $chaletlongitude = $request['chaletlongitude'];
-    $chaletservices = $request['chaletservices'];
-    $image =  $request->file('coverimage');
+    $price = $request['price'];
+    $coverimage =  $request->file('coverimage');
     $path = 'uploads/images/';
-    $imageName = time() + rand(1, 1000000000) . '.' . $image->getClientOriginalExtension();
-    Storage::disk('local')->put($path . $imageName, file_get_contents($image));
-    $chalet = Chalet::where('id', $chalet_id)->first();
+    $imageName = time() + rand(1, 1000000000) . '.' . $coverimage->getClientOriginalExtension();
+    Storage::disk('local')->put($path . $imageName, file_get_contents($coverimage));
+    $chalet_space = $request['chalet_space'];
+    $number_of_people_allowed = $request['number_of_people_allowed'];
+    $morning_period_start = $request['morning_period_start'];
+    $morning_period_end = $request['morning_period_end'];
+    $evening_period_start = $request['evening_period_start'];
+    $evening_period_end = $request['evening_period_end'];
+    $service_ids =  $request['service_ids'];
+    $detail_ids =  $request['detail_ids'];
+    $images = $request->file('images');
+
+    $chalet =  Chalet::where('id', $chalet_id)->first();
     $chalet->name = $name;
     $chalet->phone = $phone;
-    $chalet->price = $price;
-    $chalet->email = $email;
-    $chalet->member_id = $member_id;
+    $chalet->member_id = $ownerid;
     $chalet->address = $address;
     $chalet->latitude = $chaletlatitude;
     $chalet->longitude = $chaletlongitude;
-    $chalet->services = $chaletservices;
     $chalet->cover_image =  $path . $imageName;
+    $chalet->price = $price;
+    $chalet->chalet_space = $chalet_space;
+    $chalet->number_of_people_allowed = $number_of_people_allowed;
+    $chalet->morning_period_start = $morning_period_start;
+    $chalet->morning_period_end = $morning_period_end;
+    $chalet->evening_period_start = $evening_period_start;
+    $chalet->evening_period_end = $evening_period_end;
     $result = $chalet->save();
     if ($result) {
       $status = true;
     } else {
       $status = false;
     }
+
     return response()->json(['status' => $status]);
   }
 
@@ -567,12 +580,13 @@ class ApiController extends Controller
     return response()->json(['status' => $status]);
   }
 
-  public function editcomment(Request $request)
+  public function getcomment(Request $request)
   {
-    $chalet_id = $request['chalet_id'];
-    $comments = Comment::where('id', $chalet_id)->first();
+    $comment_id = $request['comment_id'];
+    $comments = Comment::where('id', $comment_id)->first();
     return response()->json($comments);
   }
+
   public function updatecomment(Request $request)
   {
     $commentcontent = $request['commentcontent'];
@@ -590,9 +604,10 @@ class ApiController extends Controller
 
 
 
-  public function indexcomments()
+  public function getcomments(Request $request)
   {
-    $comments = Comment::select('*')->get();
+    $chalet_id = $request['chalet_id'];
+    $comments = Comment::select('*')->where('chalet_id', $chalet_id)->get();
     return response()->json($comments);
   }
 
@@ -624,19 +639,19 @@ class ApiController extends Controller
     }
     return response()->json(['status' => $status]);
   }
-  public function getchaletrate(Request $request)
+  public function getrate(Request $request)
   {
-    $chalet_id = $request['chalet_id'];
-    $rates = Rate::where('id', $chalet_id)->first();
+    $rate_id = $request['rate_id'];
+    $rates = Rate::where('id', $rate_id)->first();
     return response()->json($rates);
   }
 
 
-  public function indexrates()
+  /*public function getchaletrates()
   {
     $rates = Rate::select('*')->get();
     return response()->json($rates);
-  }
+  }*/
 
   public function destroyrate(Request $request)
   {

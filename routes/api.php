@@ -98,10 +98,10 @@ Route::post('chalet/storedetails', 'ApiController@storedetails');
 //Comment API
 Route::post('comment/store', 'ApiController@storecomment');
 //http://localhost:8000/api/comment/store
-Route::get('comments','ApiController@indexcomments');
+Route::post('comments','ApiController@getcomments');
 //http://localhost:8000/api/comments
-Route::post('comment/edit','ApiController@editcomment');
-//http://localhost:8000/api/comment/edit
+Route::post('getcomment','ApiController@getcomment');
+//http://localhost:8000/api/getcomment
 Route::post('comment/update','ApiController@updatecomment');
 //http://localhost:8000/api/comment/update
 Route::post('comment/delete', 'ApiController@destroycomment');
@@ -114,8 +114,8 @@ Route::post('rate/store', 'ApiController@storerate');
 //http://localhost:8000/api/rate/store
 Route::get('rates','ApiController@indexrates');
 //http://localhost:8000/api/rates
-Route::post('rate/edit','ApiController@editrate');
-//http://localhost:8000/api/rate/edit
+Route::post('getrate','ApiController@getrate');
+//http://localhost:8000/api/getrate
 Route::post('rate/update','ApiController@updaterate');
 //http://localhost:8000/api/rate/update
 Route::post('rate/delete', 'ApiController@destroyrate');
