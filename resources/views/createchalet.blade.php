@@ -18,7 +18,7 @@
 <div class="col-lg-12">
    <div class="card">
       <div class="card-header">
-         <h4 class="card-title">اضافة شالية</h4>
+         <h4 class="card-title">Add Chalet</h4>
       </div>
       <div class="row justify-content-center">
          <div class="col-md-8">
@@ -38,7 +38,7 @@
                      </div>
                      <div class="form-group row">
                         <label for="chaletname"
-                           class="col-md-4 col-form-label text-md-right">{{ __('اسم الشالية') }}</label>
+                           class="col-md-4 col-form-label text-md-right">{{ __('Chalet Name') }}</label>
                         <div class="col-md-6">
                            <input id="chaletname" type="text" class="form-control" name="chaletname" required>
                         </div>

@@ -101,16 +101,16 @@
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 					
-							<span class="nav-text">ادارة الشاليهات</span>
+							<span class="nav-text">Chalets Managment</span>
 						</a>
                         <ul aria-expanded="false">
-                        <li><a href="{{ URL('chalets') }}">عرض الشاليهات</a></li>
-                        <li><a href="{{ URL('createchalet') }}">اضافة شالية</a></li>
+                        <li><a href="{{ URL('chalets') }}">Chalets</a></li>
+                        <li><a href="{{ URL('createchalet') }}">Add Chalets</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                    
-                        <span class="nav-text">ادارة التعليقات</span>
+                        <span class="nav-text">Comments Managment</span>
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{ URL('comments') }}">Chalet Comments</a></li>
@@ -118,7 +118,7 @@
                 </li>
                 <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                 
-                    <span class="nav-text">ادارة التقييمات</span>
+                    <span class="nav-text">Rates Managment</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ URL('rates') }}">Chalet Rates</a></li>
@@ -126,7 +126,7 @@
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                
-                <span class="nav-text">ادارة الحجوزات</span>
+                <span class="nav-text">Reservation Managment</span>
             </a>
             <ul aria-expanded="false">
                 <li><a href="{{ URL('reservations') }}">Chalet Reservation</a></li>
@@ -135,7 +135,7 @@
         </li>
         <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                
-            <span class="nav-text">ادارة الخدمات</span>
+            <span class="nav-text">Service Managment</span>
         </a>
         <ul aria-expanded="false">
             <li><a href="{{ URL('creatrservices') }}">Add Service</a></li>
@@ -144,7 +144,7 @@
     </li>
     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                
-        <span class="nav-text">ادارة التفاصيل</span>
+        <span class="nav-text">Detail Managment </span>
     </a>
     <ul aria-expanded="false">
         <li><a href="{{ URL('creatrdetail') }}">Add Detail</a></li>
