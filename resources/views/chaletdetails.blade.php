@@ -6,7 +6,7 @@
 <div class="content-body">
     <div class="container-fluid">
         <div class="page-titles">
-            <h4>Product Details</h4>
+            <h4>Chalet Details</h4>
             
         </div>
         <div class="row">
@@ -78,21 +78,39 @@
                                         <p>Chalet Name: <span class="item">{{ $chalet->name}}</span> </p>
                                         <p>Chalet Price: <span class="item">{{ $chalet->price}}</span> </p>
                                         <p>Chalet Address: <span class="item">{{ $chalet->address}}</span> </p>
-                                       
-                                       
+                                        <p>Chalet Space: <span class="item">{{ $chalet->chalet_space}}</span> </p>
+                                        <p>number_of_people_allowed: <span class="item">{{ $chalet->number_of_people_allowed}}</span> </p>
+                                        <p>morning_period_start: <span class="item">{{ $chalet->morning_period_start}}</span> </p>
+                                        <p>morning_period_end: <span class="item">{{ $chalet->morning_period_end}}</span> </p>
+                                        <p>evening_period_start: <span class="item">{{ $chalet->evening_period_start}}</span> </p>
+                                        <p>evening_period_end: <span class="item">{{ $chalet->evening_period_end}}</span> </p>
                                         
-                                        <p class="text-content">Chalet Description: <span class="item">{{ $chalet->description}}</span></p>
-                                      
-                                        
+                                        <p>chalet services : <span class="item">
+                                            @if(!empty($chalet->chaletservices))
+                                        @foreach($chalet->chaletservices as $chaletservice)
+                                        @if(!empty($chaletservice->service))
+                                            {{$chaletservice->service->service_name}}
+                                            <img  src="{{$chaletservice->service->service_icon}}" alt="" style="width: 40px;">
+                                            
+                                            @endif
+                                            @endforeach
+                                            <a href="{{ URL('chaletservice/edit/' . $chalet->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                            @endif 
+                                           </span>
+                                           </p> 
+
+                                       
+                                         
+                                       
                                         <!--Quantity start-->
                                        
-                                        <!--Quanatity End-->
+                                        <!--
 
 
                                         <div class="shopping-cart mt-3">
                                             <a class="btn btn-primary btn-lg" href="javascript:void(0)">
                                                 Chalet Reservation</a>
-                                        </div>
+                                        </div>    -->
                                     </div>
                                 </div>
                             </div>

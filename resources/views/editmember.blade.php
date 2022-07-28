@@ -71,18 +71,9 @@
             
                                         <div class="col-md-6">
                                             <input id="firstname" type="text" class="form-control" name="firstname"
-                                                value="{{ $member->FirstName }}" >
+                                                value="{{ $member->name }}" >
                                         </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="lastname"
-                                                class="col-md-4 col-form-label text-md-right">{{ __('Edit Last Name') }}</label>
-                
-                                            <div class="col-md-6">
-                                                <input id="lastname" type="text" class="form-control" name="lastname"
-                                                    value="{{ $member->LastName }}" >
-                                            </div>
-                                            </div>
                     </form>
                 </div>
              

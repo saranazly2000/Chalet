@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 class Service extends Model
 {
-    use SoftDeletes;
-    public function chalet(){
-        return $this->belongsTo('App\Chalet');
+    use SoftDeletes; 
+    public function chaletservices(){
+        return $this->hasMany('App\ChaletService');
     }
 }

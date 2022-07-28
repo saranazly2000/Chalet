@@ -69,15 +69,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="chaletemail"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Edit Email') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="chaletemail" type="text" class="form-control" name="chaletemail"
-                                    value="{{ $chalet->email }}" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="chaletaddress"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Edit Address') }}</label>
 
@@ -150,14 +141,17 @@
                                class="col-md-4 col-form-label text-md-right">{{ __('Services available in the chalet') }}</label>
                             <div class="col-md-8 col-form-label text-md-left">
                                 @if(!empty($chalet->chaletservices))
-                                @foreach($chalet->chaletservices as $service)
-                               <input type="checkbox" id="{{$service->id}}" name="services[]" value="{{$service->service_name}}">
-                               <label for="{{$service->id}}"> value ="{{$service->service_name}}"</label>
+                                @foreach($chalet->chaletservices as $chaletservice)
+                                @if(!empty($chaletservice->service))
+                                <label for="service-id"> {{$chaletservice->service->service_name}} </label>
+                              <!-- <input type="checkbox" id="service-id" name="services[]" value="{{$chaletservice->service->service_name}}"  checked>
+                               <label for="service-id"> {{$chaletservice->service->service_name}} </label> -->
+                               @endif
                                @endforeach
                                @endif
                             </div>
                          </div>
-                        
+                  
                         <div class="form-group row">
                             <label for="member_id"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Edit Owner') }}</label>

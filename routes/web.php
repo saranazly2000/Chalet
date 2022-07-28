@@ -43,7 +43,7 @@ Route::post('commentchalet/{id}', 'FirstController@storecomment');
 Route::post('storerate/{id}', 'FirstController@storerate');
 Route::get('chalet/edit/{id}', 'FirstController@edit');
 Route::post('chalet/update/{id}', 'FirstController@update');
-Route::get('chaletdetails/{chalet_id}', 'FirstController@chaletdetails');
+Route::get('chaletdetails/{id}', 'FirstController@chaletdetails');
 Route::get('chalet', 'FirstController@index4');
 Route::get('chalets', 'FirstController@index5');
 Route::post('chalet/delete/{id}', 'FirstController@destroy');
@@ -97,6 +97,10 @@ Route::get('services', 'FirstController@services');
 Route::get('service/edit/{id}', 'FirstController@editservice');
 Route::post('service/update/{id}', 'FirstController@updateservice');
 Route::post('service/delete/{id}', 'FirstController@destroyservice');
+Route::get('chaletservice/edit/{id}', 'FirstController@editchaletservice');
+Route::post('chaletservice/delete/{id}', 'FirstController@destroychaletservice');
+Route::get('chaletservice/store/{id}', 'FirstController@createchaletservice');
+
 
 Route::get('creatrdetail', 'FirstController@creatrdetail');
 Route::post('detail/store', 'FirstController@addnewdetail');

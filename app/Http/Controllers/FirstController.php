@@ -42,13 +42,11 @@ class FirstController extends Controller
   {
     $phone = $request['memberphone'];
     $type = $request['membertype'];
-    $firstName = $request['firstname'];
-    $lastName = $request['lastname'];
+    $name = $request['name'];
     $member = new Member();
     $member->phone = $phone;
     $member->type = $type;
-    $member->FirstName = $firstName;
-    $member->LastName = $lastName;
+    $member->name = $name;
     $member->save();
     return redirect()->back();
   }
@@ -67,13 +65,11 @@ class FirstController extends Controller
   {
     $phone = $request['memberphone'];
     $type = $request['membertype'];
-    $firstName = $request['firstname'];
-    $lastName = $request['lastname'];
+    $name = $request['name'];
     $member = Member::where('id', $id)->first();
     $member->phone = $phone;
     $member->type = $type;
-    $member->FirstName = $firstName;
-    $member->LastName = $lastName;
+    $member->name = $name;
     $member->save();
     return redirect()->back();
   }
@@ -226,24 +222,32 @@ class FirstController extends Controller
 
 
 
-  public function chaletdetails($chalet_id)
+  public function chaletdetails($id)
   {
 
-    $chalet = Chalet::with('images')->with('comments')->with('rates')->where('id', $chalet_id)->first();
+    $chalet = Chalet::with('images')->with('chaletservices')->with('prices')->with('comments')->with('rates')->where('id', $id)->first();
     $img_link = Storage::url($chalet->cover_image);
     $chalet->cover_image =  $img_link;
     foreach ($chalet->images as $images) {
       $img_link = Storage::url($images->image_name);
       $images->image_name =  $img_link;
     }
-
+    if(!empty($chalet->chaletservices)){
+      foreach($chalet->chaletservices as $chaletservice){
+        if(!empty($chaletservice->service)){
+            $img_link2 = Storage::url($chaletservice->service->service_icon);
+            $chaletservice->service->service_icon=  $img_link2;
+          
+        }
+      }
+   }
 
     $member = Member::select('*')->where('id', $chalet->member_id)->first();
     return view('chaletdetails')->with('chalet', $chalet)->with('member', $member);
   }
   public function edit($id)
   {
-    $chalet = Chalet::with('prices')->where('id', $id)->first();
+    $chalet = Chalet::with('prices')->with('chaletservices')->with('chaletservices.service')->where('id', $id)->first();
     $img_link = Storage::url($chalet->cover_image);
     $chalet->cover_image =  $img_link;
     $member = Member::select('*')->where('id', $chalet->member_id)->first();
@@ -621,6 +625,39 @@ class FirstController extends Controller
     $service->service_icon =  $img_link;
     return view('editservice')->with('service', $service);
   }
+
+
+  public function editchaletservice($id)
+  {
+  $chaletservices = ChaletService::with('service')->where('chalet_id', $id)->get();
+  foreach ($chaletservices as $chaletservice){
+  if (!empty($chaletservice->service)){
+          $img_link = Storage::url($chaletservice->service->service_icon);
+          $chaletservice->service->service_icon=  $img_link;
+    }
+ }
+ // dd($chaletservices->toArray());
+    return view('editchaletservice')->with('chaletservices', $chaletservices);
+  }
+
+  public function destroychaletservice($id)
+  {
+    $chaletservice = ChaletService::where('id', $id)->delete();
+    return redirect()->back();
+  }
+
+
+  public function createchaletservice($id)
+  {
+    $chalet = Chalet::where('id', $id)->with('chaletservices')->first();
+    $chaletservice = Service::whereNotIn('id', $chalet->chaletservices->pluck('service_id'))->get();
+    dd($chaletservice->toArray());
+  }
+  
+
+
+
+
 
 
   public function updateservice(Request $request, $id)

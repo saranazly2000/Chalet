@@ -70,7 +70,12 @@
                             <td>{{$price->weekend_evening }}</td>
                             @endforeach
                             @endif
-                          
+                            <td>
+                                <div class="d-flex">
+                                    <a href="{{ URL('chaletdetails/' . $chalet->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1" style="width: 70px;">Detail</a>
+                             
+                                </div>
+                            </td>
                             <td>
                                 <div class="d-flex">
                                     <a href="{{ URL('chalet/reservation/' . $chalet->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1" style="width: 70px;">حجوزات</a>
