@@ -66,11 +66,11 @@
                           </div>
                             </div>
                                     <div class="form-group row">
-                                        <label for="firstname"
+                                        <label for="name"
                                             class="col-md-4 col-form-label text-md-right">{{ __('Edit First Name') }}</label>
             
                                         <div class="col-md-6">
-                                            <input id="firstname" type="text" class="form-control" name="firstname"
+                                            <input id="name" type="text" class="form-control" name="name"
                                                 value="{{ $member->name }}" >
                                         </div>
                                         </div>
