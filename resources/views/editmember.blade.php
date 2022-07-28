@@ -44,7 +44,7 @@
                         </div>  
                         <div class="form-group row">
                             <label for="memberphone"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Edit User Phone') }}</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('Edit Member Phone') }}</label>
 
                             <div class="col-md-6">
                                 <input id="memberphone" type="text" class="form-control" name="memberphone"
@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="membertype"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Edit User Type') }}</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('Edit Member Type') }}</label>
 
                        
                             
@@ -67,7 +67,7 @@
                             </div>
                                     <div class="form-group row">
                                         <label for="name"
-                                            class="col-md-4 col-form-label text-md-right">{{ __('Edit First Name') }}</label>
+                                            class="col-md-4 col-form-label text-md-right">{{ __('Edit Member Name') }}</label>
             
                                         <div class="col-md-6">
                                             <input id="name" type="text" class="form-control" name="name"

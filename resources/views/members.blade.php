@@ -10,7 +10,7 @@
 <div class="col-lg-12">
   <div class="card">
       <div class="card-header">
-          <h4 class="card-title">User Info</h4>
+          <h4 class="card-title">Members Info</h4>
       </div>
       <div class="card-body">
           <div class="table-responsive">
@@ -18,8 +18,8 @@
                   <thead>
                       <tr>
                           
-                          <th><strong>User Phone</strong></th>
-                          <th><strong>User Type</strong></th>
+                          <th><strong>Member Phone</strong></th>
+                          <th><strong>Member Type</strong></th>
                           <th><strong> Name</strong></th>
                       </tr>
                   </thead>

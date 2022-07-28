@@ -37,7 +37,7 @@
                      
                       <div class="form-group row">
                           <label for="memberphone"
-                              class="col-md-4 col-form-label text-md-right">{{ __('User Phone') }}</label>
+                              class="col-md-4 col-form-label text-md-right">{{ __('Member Phone') }}</label>
 
                           <div class="col-md-6">
                               <input id="memberphone" type="text" class="form-control" name="memberphone" required>
@@ -45,7 +45,7 @@
                       </div>
                       <div class="form-group row">
                         <label for="membertype"
-                            class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
+                            class="col-md-4 col-form-label text-md-right">{{ __('Member Type') }}</label>
 
                         <div class="col-md-6">
                             <select name="membertype" class="form-control" required>
@@ -57,22 +57,15 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="firstname"
-                            class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                        <label for="name"
+                            class="col-md-4 col-form-label text-md-right">{{ __('Member Name') }}</label>
 
                         <div class="col-md-6">
-                            <input id="firstname" type="text" class="form-control" name="firstname" required >
+                            <input id="name" type="text" class="form-control" name="name" required >
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="lastname"
-                            class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="lastname" type="text" class="form-control" name="lastname" required >
-                        </div>
-                    </div>
+                  
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
