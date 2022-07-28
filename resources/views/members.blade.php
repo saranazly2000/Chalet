@@ -20,8 +20,7 @@
                           
                           <th><strong>User Phone</strong></th>
                           <th><strong>User Type</strong></th>
-                          <th><strong>First Name</strong></th>
-                          <th><strong>Last Name</strong></th>
+                          <th><strong> Name</strong></th>
                       </tr>
                   </thead>
                   <tbody>
@@ -34,8 +33,7 @@
                           @if($member->type == 2)
                           <td>{{"user"}}</td>
                           @endif
-                          <td>{{$member->FirstName}}</td>
-                          <td>{{$member->LastName}}</td>
+                          <td>{{$member->name}}</td>
                           <td>
                             <div class="d-flex">
                                 <a href="{{ URL('member/edit/' . $member->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
